@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Expense Calculator</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <span class="branding-text">Vehicle Expense Calculator</span>
+    </header>
+    
+    <div class="container">
+        <!-- Left Column (Input Form) -->
+        <div class="left-column">
+            <h3>Vehicle Details</h3>
+            <label for="model">Model</label>
+            <input type="text" id="model" oninput="generateReport()">
+
+            <h3>Loan Details</h3>
+            <label for="downPayment">Down Payment</label>
+            <input type="number" id="downPayment" step="0.01" oninput="generateReport()">
+
+            <label for="principal">Principal (Loan Amount)</label>
+            <input type="number" id="principal" step="0.01" oninput="generateReport()">
+
+            <label for="interestRate">Rate of Interest (%)</label>
+            <input type="number" id="interestRate" step="0.01" oninput="generateReport()">
+
+            <label for="termMonths">Term (Months)</label>
+            <input type="number" id="termMonths" oninput="generateReport()">
+
+            <label for="monthsPaid">Months Paid</label>
+            <input type="number" id="monthsPaid" oninput="generateReport()">
+
+            <label for="emiPaidInAdvance">EMI Paid in Advance</label>
+            <input type="number" id="emiPaidInAdvance" step="0.01" oninput="generateReport()">
+
+            <h3>Maintenance Details</h3>
+            <label for="distance">Distance Ran Per Year (km)</label>
+            <input type="number" id="distance" oninput="generateReport()">
+
+            <label for="mileage">Mileage (km/l)</label>
+            <input type="number" id="mileage" step="0.01" oninput="generateReport()">
+
+            <label for="fuelCost">Fuel Cost per Litre</label>
+            <input type="number" id="fuelCost" step="0.01" oninput="generateReport()">
+
+            <label for="serviceMaintenance">Service Maintenance (per Year)</label>
+            <input type="number" id="serviceMaintenance" step="0.01" oninput="generateReport()">
+
+            <label for="otherMaintenance">Other Maintenance & Repair</label>
+            <input type="number" id="otherMaintenance" step="0.01" oninput="generateReport()">
+
+            <label for="ownershipPeriod">Ownership Period (Months) (Tentative)</label>
+            <input type="number" id="ownershipPeriod" oninput="generateReport()">
+
+            <h3>Vehicle Resale Value</h3>
+            <label for="resaleValue">Resale Value</label>
+            <input type="number" id="resaleValue" step="0.01" oninput="generateReport()">
+
+            <!-- Profile Management -->
+            <div class="button">
+                <h3>Manage Profiles</h3>
+                <select id="profileSelector" onchange="loadProfile()">
+                    <option value="">Select a Profile</option>
+                </select>
+                <button onclick="saveProfile()">Save Profile</button>
+                <button onclick="deleteProfile()">Delete Profile</button>
+            </div>
+
+            <!-- Refresh Button -->
+            <div class="refresh-chart-container">
+                <button class="button" onclick="refreshCharts()">Refresh</button>
+            </div>
+        </div>
+
+        <!-- Right Column (Report Display) -->
+        <div class="right-column">
+            <h2>Expense Summary Report</h2>
+            <div class="report-container">
+                <!-- Expense Report Section -->
+                <div id="expenseReport" class="report-column"></div>
+
+                <!-- Charts -->
+                <div class="report-column">
+                    <canvas id="expenseChartToDate"></canvas>
+                </div>
+                <div class="report-column">
+                    <canvas id="expenseChartOwnership"></canvas>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="notes">
+                <h2>Notes</h2>
+                <textarea id="noteInput" placeholder="Type your note here..."></textarea>
+                <button onclick="addNote()">Save Note</button>
+                <div id="notesList" class="notes-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

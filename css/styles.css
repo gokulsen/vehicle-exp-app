@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #e9ecef; /* Light background color for body */
+}
+
+/* Header with logo and branding text */
+header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px; /* Space between logo and content */
+}
+
+.branding-text {
+    font-size: 40px;
+    font-weight: 600;
+    color: #2985A5; /* Branding text color */
+    letter-spacing: 1px;
+}
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff; /* White background for the container */
+    border-radius: 12px;
+}
+.left-column {
+    width: 40%;
+    padding: 20px;
+    background-color: #ffffff; /* Light white background for left column */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Border for left column */
+    font-size: 16px;
+    font-weight: 600;
+    color: #5d5555; /* Set heading color to theme color */
+}
+.right-column {
+    width: 60%;
+    padding: 20px;
+    background-color: #f8f9fa; /* Slightly darker background for right column */
+    margin-left: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Border for right column */
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: #5d5555; /* Set heading color to theme color */
+}
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2985A5; /* Set heading color to theme color */
+}
+h3 {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2985A5; /* Set heading color to theme color */
+}
+label {
+    font-weight: bold;
+    color: #2985A5; /* Set label color to theme color */
+}
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2985A5; /* Set input border color to theme color */
+    border-radius: 4px;
+    margin: 8px 0;
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #5d5555; /* Set heading color to theme color */
+}
+input:focus {
+    border-color: #80bdff; /* Focused input field color */
+    outline: none;
+}
+button {
+    background-color: #2985A5; /* Set button background color to theme color */
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    padding: 10px;
+}
+button:hover {
+    background-color: #1f6f8b; /* Darker theme color for button hover */
+}
+button:active {
+    background-color: #1a5c77; /* Even darker theme color when button is clicked */
+}
+.report {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Light green background for report */
+    border: 1px solid #c3e6cb; /* Border color for report */
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2985A5; /* Set heading color to theme color */
+}
+.report-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.report-column {
+    width: 48%;
+}
+.report hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 10px 0;
+}
+.notes {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #cccc; /* Light red background for notes */
+    border: 1px solid #f5c6cb; /* Border color for notes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #5d5555; /* Set heading color to theme color */
+}
+.notes h3 {
+    margin-top: 0;
+    color: #721c24; /* Dark red color for note headings */
+}
+canvas {
+    width: 100% !important;
+    max-width: 400px;
+    height: 800px !important;  /* Set a fixed height, adjust as needed */
+    display: block;
+    max-height: 900px;  /* Optional: Set a max height to prevent excessive growth */
+    object-fit: contain;  /* Keeps the aspect ratio intact */
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-column, .right-column {
+        width: 100%;
+        margin-left: 0;
+    }
+}
