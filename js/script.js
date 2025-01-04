@@ -1,3 +1,20 @@
+// Function to toggle between Loan Details and Ownership Period field
+function toggleLoanDetails(value) {
+    const loanAvailedLabel = document.getElementById("loanAvailedLabel");
+    const loanDetails = document.getElementById("loanDetails");
+    const ownershipPeriodSection = document.getElementById("ownershipPeriodSection");
+
+    if (value == 1) {
+        loanAvailedLabel.textContent = "Yes";
+        loanDetails.style.display = "block";
+        ownershipPeriodSection.style.display = "none";
+    } else {
+        loanAvailedLabel.textContent = "No";
+        loanDetails.style.display = "none";
+        ownershipPeriodSection.style.display = "block";
+    }
+}
+
 // Roundoff Number to 2 decimals
 function formatToTwoDecimals(value) {
 return Math.round(value * 100) / 100;
@@ -35,33 +52,33 @@ function generateReport() {
     localStorage.setItem('monthsPaid', monthsPaid);
     localStorage.setItem('resaleValue', resaleValue);
 
-    // EMI Calculation
+    // Ensure default values if loan details are zero
     const monthlyInterestRate = (interestRate / 100) / 12;
-    const emi = formatToTwoDecimals((principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, termMonths)) / (Math.pow(1 + monthlyInterestRate, termMonths) - 1));
+    const emi = (principal > 0 && termMonths > 0 && interestRate > 0)
+        ? formatToTwoDecimals((principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, termMonths)) / (Math.pow(1 + monthlyInterestRate, termMonths) - 1))
+        : 0; // Default to 0 if loan is not taken
     const totalLoanAmount = formatToTwoDecimals(emi * termMonths);
     
-    // EMI Paid to date
     const emiPaidToDate = formatToTwoDecimals(emi * monthsPaid + emiPaidInAdvance);
     const emiToBePaid = formatToTwoDecimals(totalLoanAmount - emiPaidToDate);
-
+    
     // Maintenance Cost Calculation
     const ownershipPeriodInYears = ownershipPeriod / 12;
     const fuelConsumedPerYear = distance / mileage;
     const totalFuelCost = formatToTwoDecimals(fuelConsumedPerYear * fuelCost * ownershipPeriodInYears);
     const totalServiceMaintenance = formatToTwoDecimals(serviceMaintenance * ownershipPeriodInYears);
-
+    
     // Total Expenses Calculation
     const vehicleCost = formatToTwoDecimals(downPayment + totalLoanAmount);
     const totalMaintenanceCost = formatToTwoDecimals(totalFuelCost + totalServiceMaintenance + otherMaintenance);
     const totalExpense = formatToTwoDecimals(vehicleCost + totalMaintenanceCost);
-
+    
     // Calculate expenses for months paid
     const vehicleCostToDate = formatToTwoDecimals(downPayment + emiPaidToDate);
     const totalFuelCostPaid = formatToTwoDecimals(fuelConsumedPerYear * fuelCost * (monthsPaid / 12));
     const totalServiceMaintenancePaid = formatToTwoDecimals(serviceMaintenance * (monthsPaid / 12));
     const totalMaintenanceCostPaid = formatToTwoDecimals(totalFuelCostPaid + totalServiceMaintenancePaid + otherMaintenance);
     const totalExpensePaid = formatToTwoDecimals(vehicleCostToDate + totalMaintenanceCostPaid);
-
 
     // Generate and display the report
     const reportHTML = `
@@ -156,12 +173,12 @@ function generateReport() {
     }
 
     function calculateMaxYValue(dataArray) {
-        // Finds the maximum value from the dataset and rounds up to the nearest multiple of 1000
         const maxValue = Math.max(...dataArray);
         return Math.ceil(maxValue / 100000) * 100000;
     }
 
     function generateCharts() {
+        //generateReport();
         const maxYValue = calculateMaxYValue([
             vehicleCostToDate,
             totalFuelCostPaid,
@@ -196,17 +213,9 @@ function generateReport() {
         );
     }
 
-    
     // Ensure this is called at the end of generateReport
     generateCharts();
-
-
-
 }
-
-
-
-
 
 function saveProfile() {
     const profile = {

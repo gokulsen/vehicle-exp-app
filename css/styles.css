@@ -130,14 +130,17 @@ button:active {
     background: #ccc;
     margin: 10px 0;
 }
-.notes {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #cccc; /* Light red background for notes */
-    border: 1px solid #f5c6cb; /* Border color for notes */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    color: #5d5555; /* Set heading color to theme color */
+.notes textarea {
+    width: calc(100% - 16px);
+    height: 60px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+.notes button {
+    margin-top: 10px;
 }
 .notes h3 {
     margin-top: 0;
@@ -161,4 +164,52 @@ canvas {
         width: 100%;
         margin-left: 0;
     }
+}
+
+/* Styling for the Slider Container */
+.slider {
+    display: flex; /* Use flexbox to align elements in a row */
+    align-items: center; /* Vertically center the items */
+    gap: 10px; /* Add some space between the elements */
+}
+
+/* Styling for the Slider */
+input[type="range"] {
+    -webkit-appearance: none; /* Remove default appearance */
+    -moz-appearance: none;
+    appearance: none;
+    width:8%; /* Make the slider smaller in width */
+    height: 4px; /* Make the slider thinner */
+    background: #ddd; /* Light gray background */
+    border-radius: 60px; /* Rounded edges */
+    outline: none; /* Remove outline on focus */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+/* Styling the Thumb (Handle) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default thumb styling */
+    -moz-appearance: none;
+    appearance: none;
+    width: 14px; /* Smaller thumb width */
+    height: 14px; /* Smaller thumb height */
+    background: #007bff; /* Blue thumb */
+    border-radius: 50%; /* Round thumb */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background 0.3s ease; /* Smooth color transition */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 14px; /* Smaller thumb width */
+    height: 14px; /* Smaller thumb height */
+    background: #007bff; /* Blue thumb */
+    border-radius: 50%; /* Round thumb */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background 0.3s ease; /* Smooth color transition */
+}
+
+/* Slider Value Label */
+#loanAvailedLabel {
+    font-size: 14px;
+    margin-left: 10px;
 }
