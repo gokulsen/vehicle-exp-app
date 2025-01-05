@@ -1,17 +1,24 @@
 // Function to toggle between Loan Details and Ownership Period field
 function toggleLoanDetails(value) {
-    const loanAvailedLabel = document.getElementById("loanAvailedLabel");
     const loanDetails = document.getElementById("loanDetails");
     const ownershipPeriodSection = document.getElementById("ownershipPeriodSection");
+    const loanAvailedLabel = document.getElementById("loanAvailedLabel");
+    const expenseReport = document.getElementById("expenseReport");
 
-    if (value == 1) {
-        loanAvailedLabel.textContent = "Yes";
+    if (value === "1") { // Loan Availed: Yes
         loanDetails.style.display = "block";
         ownershipPeriodSection.style.display = "none";
-    } else {
-        loanAvailedLabel.textContent = "No";
+        loanAvailedLabel.textContent = "Yes";
+    } else { // Loan Availed: No
         loanDetails.style.display = "none";
         ownershipPeriodSection.style.display = "block";
+        loanAvailedLabel.textContent = "No";
+
+        // Remove Loan Details from the report
+        const loanReportSection = document.querySelector(".loan-details-section");
+        if (loanReportSection) {
+            loanReportSection.remove();
+        }
     }
 }
 
@@ -84,44 +91,44 @@ function generateReport() {
     const reportHTML = `
         <div class="report-section">
             <h3>Vehicle Details</h3>
-            <p><strong>Vehicle Model:</strong> ${model}</p>
+            <p>Vehicle Model: ${model}</p>
             <hr>
         </div>
 
         <div class="report-section">
             <h3>Loan Details</h3>
-            <p><strong>Down Payment:</strong> ${downPayment.toFixed(2)}</p>
-            <p><strong>EMI (Monthly):</strong> ${emi.toFixed(2)}</p>
-            <p><strong>Total Loan Amount:</strong> ${totalLoanAmount.toFixed(2)}</p>
-            <p><strong>EMI Paid To-Date:</strong> ${emiPaidToDate.toFixed(2)}</p>
-            <p><strong>EMI Due:</strong> ${emiToBePaid.toFixed(2)}</p>
-            <p><strong>EMI Paid In Advance:</strong> ${emiPaidInAdvance.toFixed(2)}</p>
+            <p>Down Payment: ${downPayment.toFixed(2)}</p>
+            <p>EMI (Monthly): ${emi.toFixed(2)}</p>
+            <p>Total Loan Amount: ${totalLoanAmount.toFixed(2)}</p>
+            <p>EMI Paid To-Date: ${emiPaidToDate.toFixed(2)}</p>
+            <p>EMI Due: ${emiToBePaid.toFixed(2)}</p>
+            <p>EMI Paid In Advance: ${emiPaidInAdvance.toFixed(2)}</p>
             <hr>
         </div>
 
         <div class="report-section">
             <h3>Maintenance Cost for ${monthsPaid} Months To-Date</h3>
-            <p><strong>Vehicle Cost:</strong> ${vehicleCostToDate.toFixed(2)}</p>
-            <p><strong>Fuel Cost:</strong> ${totalFuelCostPaid.toFixed(2)}</p>
-            <p><strong>Service Maintenance:</strong> ${totalServiceMaintenancePaid.toFixed(2)}</p>
-            <p><strong>Other Maintenance & Repair:</strong> ${otherMaintenance.toFixed(2)}</p>
-            <p><strong>Total Expense To-Date:</strong> ${totalExpensePaid.toFixed(2)}</p>
+            <p>Vehicle Cost: ${vehicleCostToDate.toFixed(2)}</p>
+            <p>Fuel Cost: ${totalFuelCostPaid.toFixed(2)}</p>
+            <p>Service Maintenance: ${totalServiceMaintenancePaid.toFixed(2)}</p>
+            <p>Other Maintenance & Repair: ${otherMaintenance.toFixed(2)}</p>
+            <p>Total Expense To-Date: ${totalExpensePaid.toFixed(2)}</p>
             <hr>
         </div>
 
         <div class="report-section">
             <h3>Maintenance Cost for ${ownershipPeriodInYears} Years</h3>
-            <p><strong>Vehicle Cost:</strong> ${vehicleCost.toFixed(2)}</p>
-            <p><strong>Fuel Cost:</strong> ${totalFuelCost.toFixed(2)}</p>
-            <p><strong>Service Maintenance:</strong> ${totalServiceMaintenance.toFixed(2)}</p>
-            <p><strong>Other Maintenance & Repair:</strong> ${otherMaintenance.toFixed(2)}</p>
-            <p><strong>Total Expense for Ownership Period:</strong> ${totalExpense.toFixed(2)}</p>
+            <p>Vehicle Cost: ${vehicleCost.toFixed(2)}</p>
+            <p>Fuel Cost: ${totalFuelCost.toFixed(2)}</p>
+            <p>Service Maintenance: ${totalServiceMaintenance.toFixed(2)}</p>
+            <p>Other Maintenance & Repair: ${otherMaintenance.toFixed(2)}</p>
+            <p>Total Expense for Ownership Period: ${totalExpense.toFixed(2)}</p>
             <hr>
         </div>
 
         <div class="report-section">
             <h3>Vehicle Resale Value</h3>
-            <p><strong>Current Resale Value:</strong> ${resaleValue.toFixed(2)}</p>
+            <p>Current Resale Value: ${resaleValue.toFixed(2)}</p>
         </div>
     `;
     document.getElementById("expenseReport").innerHTML = reportHTML;
@@ -141,7 +148,7 @@ function generateReport() {
                 datasets: [{
                     label: chartLabel,
                     data: data,
-                    backgroundColor: '#2985A5',
+                    backgroundColor: '#79b5c9',
                     borderColor: '#ccccc',
                     borderWidth: 1,
                 }]
