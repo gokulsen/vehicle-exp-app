@@ -141,6 +141,11 @@ function generateReport() {
     let chartOwnership = null;
 
     function createBarChart(ctx, labels, data, chartLabel, maxYValueRounded) {
+        const colors = [
+            '#79b5c9', // Light Blue
+            '#ccccc', // Red
+        ];
+    
         return new Chart(ctx, {
             type: 'bar',
             data: {
@@ -148,8 +153,8 @@ function generateReport() {
                 datasets: [{
                     label: chartLabel,
                     data: data,
-                    backgroundColor: '#79b5c9',
-                    borderColor: '#ccccc',
+                    backgroundColor: labels.map((_, index) => colors[index % colors.length]), // Assign colors cyclically
+                    borderColor: '#ccc',
                     borderWidth: 1,
                 }]
             },

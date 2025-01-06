@@ -1,187 +1,138 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    background-color: #f4f4f9;
+    font-family: Arial, sans-serif; /* Uniform font across the page */
     margin: 0;
     padding: 0;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: #e9ecef; /* Light background color for body */
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-/* Header with logo and branding text */
+/* Header */
 header {
-    width: 100%;
+    background-color: #2985A5;
+    color: white;
+    padding: 15px 20px;
     text-align: center;
-    margin-bottom: 30px; /* Space between logo and content */
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.branding-text {
-    font-size: 40px;
-    font-weight: 600;
-    color: #2985A5; /* Branding text color */
-    letter-spacing: 1px;
-}
+/* Container */
 .container {
     display: flex;
-    width: 90%;
-    max-width: 1200px;
+    justify-content: space-between;
     padding: 20px;
-    background-color: #fff; /* White background for the container */
-    border-radius: 12px;
+    gap: 20px;
 }
+
+/* Left Column */
 .left-column {
-    width: 30%;
+    flex: 1;
+    background-color: white;
     padding: 20px;
-    background-color: #ffffff; /* Light white background for left column */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    border: 1px solid #ddd; /* Border for left column */
-    font-size: 16px;
-    font-weight: 600;
-    color: #5d5555; /* Set heading color to theme color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.right-column {
-    width: 60%;
-    padding: 20px;
-    background-color: #f8f9fa; /* Slightly darker background for right column */
-    margin-left: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    border: 1px solid #ddd; /* Border for right column */
-    text-align: left;
-    font-size: 16px;
-    font-weight: 600;
-    color: #5d5555; /* Set heading color to theme color */
+
+.left-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #2985A5;
 }
-h2 {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    color: #2985A5; /* Set heading color to theme color */
+
+.left-column label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
 }
-h3 {
-    text-align: left;
-    font-size: 18px;
-    font-weight: 600;
-    color: #2985A5; /* Set heading color to theme color */
-}
-label { /* Set size & font for field name*/
-    text-align: center;
-    font-size: 16px;
-    font-weight: 400;
-    color: #2985A5; /* Set label color to theme color */
-}
-input {
+
+.left-column input,
+.left-column select {
     width: 100%;
     padding: 8px;
-    border: 1px solid #2985A5; /* Set input border color to theme color */
-    border-radius: 4px;
-    margin: 8px 0;
-    background-color: #ffffff;
-    font-size: 16px;
-    color: #5d5555; /* Set heading color to theme color */
-}
-input:focus {
-    border-color: #80bdff; /* Focused input field color */
-    outline: none;
-}
-button {
-    background-color: #2985A5; /* Set button background color to theme color */
-    color: white;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.2s;
-    padding: 10px;
-}
-button:hover {
-    background-color: #1f6f8b; /* Darker theme color for button hover */
-}
-button:active {
-    background-color: #1a5c77; /* Even darker theme color when button is clicked */
-}
-.report {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #d4edda; /* Light green background for report */
-    border: 1px solid #c3e6cb; /* Border color for report */
-    display: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    color: #2985A5; /* Set heading color to theme color */
-}
-.report-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.report-column {
-    width: 100%;
-}
-.report hr {
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    margin: 8px 0;
-}
-.report-section p {
-    font-size: 15px; /* Decrease paragraph font size */
-    font-weight: 600; /* Normal font weight */
-    margin: 5px 0; /* Add spacing between paragraphs */
-    line-height: 1.8; /* Increase line spacing */
-}
-
-.report-section p .field {
-    color: #2985A5; /* Set field names to blue */
-    font-weight: 500; /* Slightly bold */
-}
-
-.report-section p .value {
-    color: #5d5555; /* Set values to black */
-    font-weight: 400; /* Normal font weight */
-}
-.notes textarea {
-    width: calc(100% - 16px);
-    height: 60px;
-    font-size: 16px;
-    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical;
-}
-.notes button {
-    margin-top: 10px;
-}
-.notes h3 {
-    margin-top: 0;
-    color: #721c24; /* Dark red color for note headings */
-}
-canvas {
-    width: 100% !important;
-    max-width: 600px;
-    height: 800px !important;  /* Set a fixed height, adjust as needed */
-    display: block;
-    max-height: 900px;  /* Optional: Set a max height to prevent excessive growth */
-    object-fit: contain;  /* Keeps the aspect ratio intact */
+    font-size: 1rem;
 }
 
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    .left-column, .right-column {
-        width: 100%;
-        margin-left: 0;
-    }
+/* Buttons */
+.button,
+.refresh-chart-container button {
+    background-color: #2985A5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.button:hover,
+.refresh-chart-container button:hover {
+    background-color: #26798E;
+}
+
+/* Right Column */
+.right-column {
+    flex: 2;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-column h2 {
+    font-size: 1.5rem;
+    color: #2985A5;
+    margin-bottom: 10px;
+}
+
+.report-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.report-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+/* Notes Section */
+.notes {
+    margin-top: 20px;
+}
+
+.notes h2 {
+    font-size: 1.2rem;
+    color: #2985A5;
+}
+
+#noteInput {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.notes-list {
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.notes-list li {
+    margin-bottom: 5px;
 }
 
 /* Styling for the Slider Container */
@@ -196,8 +147,8 @@ input[type="range"] {
     -webkit-appearance: none; /* Remove default appearance */
     -moz-appearance: none;
     appearance: none;
-    width:8%; /* Make the slider smaller in width */
-    height: 4px; /* Make the slider thinner */
+    width: 150px; /* Explicitly set the width to reduce size */
+    height: 4px; /* Thin slider */
     background: #ddd; /* Light gray background */
     border-radius: 60px; /* Rounded edges */
     outline: none; /* Remove outline on focus */
@@ -230,4 +181,27 @@ input[type="range"]::-moz-range-thumb {
 #loanAvailedLabel {
     font-size: 14px;
     margin-left: 10px;
+}
+
+
+/* Loan Details and Ownership Period Sections */
+#loanDetails,
+#ownershipPeriodSection {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1;
+    }
 }

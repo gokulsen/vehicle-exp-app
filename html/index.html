@@ -27,13 +27,11 @@
                 <label for="model">Model</label>
                 <input type="text" id="model" oninput="generateReport()">
 
-
                 <!-- Slider for Loan Availed -->
                 <div class="slider">
-                    <h3>Loan Availed</h3>
-                    <input type="range" id="loanAvailed" min="0" max="1" step="1" onchange="toggleLoanDetails(this.value)">
-                    <span id="loanAvailedLabel"><Yes>
-                    <No></No></span>  
+                    <h3 style="margin: 0;">Loan Availed</h3>
+                    <input type="range" id="loanAvailed" min="0" max="1" step="1" onchange="toggleLoanDetails(this.value)" style="flex: 1;">
+                    <span id="loanAvailedLabel">No</span>
                 </div>
 
 
