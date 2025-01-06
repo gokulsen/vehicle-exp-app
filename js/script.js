@@ -15,7 +15,7 @@ function toggleLoanDetails(value) {
         loanAvailedLabel.textContent = "No";
 
         // Remove Loan Details from the report
-        const loanReportSection = document.querySelector(".loan-details-section");
+        const loanReportSection = document.querySelector(".section");
         if (loanReportSection) {
             loanReportSection.remove();
         }
