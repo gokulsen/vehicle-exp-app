@@ -9,7 +9,7 @@ body {
 
 /* Header */
 header {
-    background-color: #2985A5;
+    background-color: #374A67;
     color: white;
     padding: 15px 20px;
     text-align: center;
@@ -37,7 +37,7 @@ header {
 .left-column h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #2985A5;
+    color: #374A67;
 }
 
 .left-column label {
@@ -60,7 +60,7 @@ header {
 /* Buttons */
 .button,
 .refresh-chart-container button {
-    background-color: #2985A5;
+    background-color: #374A67;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -86,7 +86,7 @@ header {
 
 .right-column h2 {
     font-size: 1.5rem;
-    color: #2985A5;
+    color: #374A67;
     margin-bottom: 10px;
 }
 
@@ -112,7 +112,7 @@ canvas {
 
 .notes h2 {
     font-size: 1.2rem;
-    color: #2985A5;
+    color: #374A67;
 }
 
 #noteInput {
